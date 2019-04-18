@@ -21,14 +21,15 @@ public class ReaderDaoImpl implements ReaderDao {
     }
 
     public List listAllReaders() {
-        CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
-        CriteriaQuery<Reader> criteriaQuery = criteriaBuilder.createQuery(Reader.class);
-        return criteriaQuery.getOrderList();
+        //CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+       // CriteriaQuery<Reader> criteriaQuery = criteriaBuilder.createQuery(Reader.class);
+       // return criteriaQuery.getOrderList();
+        return null;
     }
 
     @Override
     public void saveOrUpdate(Reader reader) {
-        getSession().save(reader);
+       // getSession().save(reader);
     }
 
     @Override

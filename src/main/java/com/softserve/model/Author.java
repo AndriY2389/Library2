@@ -4,6 +4,8 @@ package com.softserve.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,12 +16,16 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @Column(name = "LASTNAME")
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "authors")
+    private List<Book> books= new ArrayList();
+
+    @Column(name = "LAST_NAME")
     private String lastName;
 
     @Column(name = "AGE")
     private String age;
+
 }

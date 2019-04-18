@@ -4,10 +4,12 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name="book")
+@Table(name="books")
 public class Book {
 
     @Id
@@ -17,9 +19,17 @@ public class Book {
     @Column(name = "NAME")
     private String Name;
 
+    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Book_authors",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "author_id")}
+    )
+    private List<Author> authors = new ArrayList<>();
+
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;
 
-    @Column(name = "AVALIABLE")
-    private Boolean avaliable;
+    @Column(name = "AVAILABLE")
+    private Boolean available;
 }
