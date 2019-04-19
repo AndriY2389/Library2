@@ -21,13 +21,14 @@ public class Book {
 
     @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
     @JoinTable(
-            name = "Book_authors",
+            name = "Books_authors",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")}
     )
     private List<Author> authors = new ArrayList<>();
 
     @Column(name = "RELEASE_DATE")
+    @Temporal(value = TemporalType.DATE)
     private Date releaseDate;
 
     @Column(name = "AVAILABLE")

@@ -21,8 +21,14 @@ public class Order {
     private Integer id_book;
 
     @Column(name = "DATE_OF_ISSUANCE")
+    @Temporal(value = TemporalType.DATE)
     private Date dateOfIssuance;
 
     @Column(name = "DATE_OF_RETURN")
+    @Temporal(value = TemporalType.DATE)
     private Date dateOfReturn;
+
+    @ManyToOne
+    @JoinColumn(name="id", nullable=false)
+    private Reader reader;
 }

@@ -4,6 +4,7 @@ package com.softserve.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,4 +23,7 @@ public class Reader {
 
     @Column(name = "AGE")
     private Integer age;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="readers")
+    private List<Order> orders;
 }
