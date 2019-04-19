@@ -17,7 +17,7 @@ public class Order {
     @Column(name = "ID_READER")
     private Integer id_reader;
 
-    @Column(name = "ID_ID_BOOK")
+    @Column(name = "ID_BOOK")
     private Integer id_book;
 
     @Column(name = "DATE_OF_ISSUANCE")
