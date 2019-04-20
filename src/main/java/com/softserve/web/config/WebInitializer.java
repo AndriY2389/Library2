@@ -1,4 +1,4 @@
-package com.softserve.config;
+package com.softserve.web.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
