@@ -3,22 +3,22 @@ package com.softserve.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Data
 @Entity
 @Table(name="orders")
 public class Order {
 
+    @Column(name = "ID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "ID_READER")
-    private Integer id_reader;
-
-    @Column(name = "ID_BOOK")
-    private Integer id_book;
+    @ManyToOne
+    @JoinColumn(name = "BOOK_ID",nullable = false)
+    private Book books;
 
     @Column(name = "DATE_OF_ISSUANCE")
     @Temporal(value = TemporalType.DATE)
@@ -29,6 +29,6 @@ public class Order {
     private Date dateOfReturn;
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
-    private Reader reader;
+    @JoinColumn(name="READER_ID", nullable=false)
+    private Reader readers;
 }
