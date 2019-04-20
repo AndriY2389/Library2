@@ -4,7 +4,6 @@ package com.softserve.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -19,8 +18,8 @@ public class Author {
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "authors")
-    private List<Book> books= new ArrayList();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors")
+    private List<Book> books;
 
     @Column(name = "LAST_NAME")
     private String lastName;
