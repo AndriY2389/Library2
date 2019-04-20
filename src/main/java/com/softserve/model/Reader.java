@@ -11,6 +11,7 @@ import java.util.List;
 @Table(name="readers")
 public class Reader {
 
+    @Column(name = "ID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

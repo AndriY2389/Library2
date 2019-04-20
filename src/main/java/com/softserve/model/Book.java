@@ -3,8 +3,7 @@ package com.softserve.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -12,6 +11,7 @@ import java.util.List;
 @Table(name="books")
 public class Book {
 
+    @Column(name = "ID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,7 +25,7 @@ public class Book {
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")}
     )
-    private List<Author> authors = new ArrayList<>();
+    private List<Author> authors;
 
     @Column(name = "RELEASE_DATE")
     @Temporal(value = TemporalType.DATE)
@@ -33,4 +33,9 @@ public class Book {
 
     @Column(name = "AVAILABLE")
     private Boolean available;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="books")
+    private List<Order> orders;
+
+
 }
