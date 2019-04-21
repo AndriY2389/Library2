@@ -1,4 +1,4 @@
-package com.softserve.web.config;
+package com.softserve.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

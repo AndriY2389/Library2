@@ -24,8 +24,4 @@ public class Author {
 
     @Column(name = "LAST_NAME")
     private String lastName;
-
-    @Column(name = "AGE")
-    private String age;
-
 }
