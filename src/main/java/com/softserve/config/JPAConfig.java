@@ -1,4 +1,4 @@
-package com.softserve.web.config;
+package com.softserve.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;

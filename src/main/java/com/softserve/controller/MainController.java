@@ -1,4 +1,4 @@
-package com.softserve.web.controller;
+package com.softserve.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -10,5 +10,4 @@ public class MainController {
     public String index(){
         return "index";
     }
-
 }

@@ -22,9 +22,6 @@ public class Reader {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "AGE")
-    private Integer age;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy="readers")
     private List<Order> orders;
 }
