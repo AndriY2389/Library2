@@ -17,7 +17,7 @@ public class Book {
     private Integer id;
 
     @Column(name = "NAME")
-    private String Name;
+    private String name;
 
     @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
     @JoinTable(

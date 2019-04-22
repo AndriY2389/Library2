@@ -8,5 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class OrderDAOimpl extends AbstractDAO<Order,Integer> implements OrderDAO {
-
+    public OrderDAOimpl() {
+        super(Order.class);
+    }
 }

@@ -1,6 +1,7 @@
 package com.softserve.dao.impl;
 
 import com.softserve.dao.generic.IGenericDAO;
+import com.softserve.model.Author;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,14 @@ public abstract class AbstractDAO<T,ID> implements IGenericDAO<T,ID> {
 
     @PersistenceContext
     EntityManager entityManager;
+
+    public AbstractDAO(){
+
+    }
+
+    public AbstractDAO(Class<T> clazz) {
+        this.clazz = clazz;
+    }
 
     public void setClazz(Class<T> clazzToSet){
         this.clazz = clazzToSet;
@@ -35,8 +44,7 @@ public abstract class AbstractDAO<T,ID> implements IGenericDAO<T,ID> {
     @SuppressWarnings("unchecked")
     @Override
     public List<T> findAll() {
-        return entityManager.createQuery("from" + clazz.getName())
-                .getResultList();
+        return (List<T>) entityManager.createQuery("from " + clazz.getName()).getResultList();
     }
 
     @SuppressWarnings("unchecked")

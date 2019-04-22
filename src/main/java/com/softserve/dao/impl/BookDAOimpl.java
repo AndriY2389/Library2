@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class BookDAOimpl extends AbstractDAO<Book,Integer> implements BookDAO {
+public class BookDAOimpl extends AbstractDAO<Book, Integer> implements BookDAO {
 
+    public BookDAOimpl() {
+        super(Book.class);
+    }
 }
