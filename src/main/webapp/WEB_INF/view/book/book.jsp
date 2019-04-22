@@ -13,6 +13,25 @@
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-    Book
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Release Date</th>
+        <th>Available</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="book" items="${books}" varStatus="rowCounter">
+        <tr>
+            <td>${book.getId()}</td>
+            <td>${book.getName()}</td>
+            <td>${book.getReleaseDate().toString()}</td>
+            <td>${book.isAvailable()}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>

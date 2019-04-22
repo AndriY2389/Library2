@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Oleksandr
@@ -13,6 +14,23 @@
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-    Author
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>FIRSTNAME</th>
+        <th>LASTNAME</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="author" items="${authors}" varStatus="rowCounter">
+        <tr>
+            <td>${author.getId()}</td>
+            <td>${author.getFirstName()}</td>
+            <td>${author.getLastName()}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>
