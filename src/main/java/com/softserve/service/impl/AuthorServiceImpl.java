@@ -16,7 +16,6 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public void save(Author entity) {
-
     }
 
     @Override
