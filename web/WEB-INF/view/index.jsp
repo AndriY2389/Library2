@@ -9,9 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="head.jsp"/>
-<head>
-  <link href= "css/style.css" rel="stylesheet">
-</head>
 <body>
 <div id="header">
   <jsp:include page="menu.jsp"/>
