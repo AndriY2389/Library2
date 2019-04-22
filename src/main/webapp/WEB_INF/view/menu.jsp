@@ -3,23 +3,23 @@
 <html>
 <body>
 
-<div class="row">
+<div class="naw menu" >
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <div class="col lol">
+        <div class="col logo">
             Library
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-outline-secondary">Books</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-outline-secondary">Orders</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-outline-secondary">Reader</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-outline-secondary">Author</button>
-        </div>
+        <form action="/book" class="col">
+            <input type="submit" class="btn btn1 btn-outline-secondary" value="Books"/>
+        </form>
+        <form action="/order" class="col">
+            <input type="submit" class="btn btn1 btn-outline-secondary" value="Orders"/>
+        </form>
+        <form action="/reader" class="col">
+            <input type="submit" class="btn btn1 btn-outline-secondary" value="Reader"/>
+        </form>
+        <form action="/author" class="col">
+            <input type="submit" class="btn btn1 btn-outline-secondary" value="Author"/>
+        </form>
     </nav>
 
 </div>
