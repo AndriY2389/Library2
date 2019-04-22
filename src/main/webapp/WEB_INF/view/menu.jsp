@@ -4,21 +4,24 @@
 <body>
 
 <div class="row">
-    <div class="col">
-        Library
-    </div>
-    <div class="col">
-        <button type="button" class="btn btn-outline-secondary">Books</button>
-    </div>
-    <div class="col">
-        <button type="button" class="btn btn-outline-secondary">Orders</button>
-    </div>
-    <div class="col">
-        <button type="button" class="btn btn-outline-secondary">Reader</button>
-    </div>
-    <div class="col">
-        <button type="button" class="btn btn-outline-secondary">Author</button>
-    </div>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="col lol">
+            Library
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary">Books</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary">Orders</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary">Reader</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary">Author</button>
+        </div>
+    </nav>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
