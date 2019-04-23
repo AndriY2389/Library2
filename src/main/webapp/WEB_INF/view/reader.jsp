@@ -10,11 +10,11 @@
 <html>
 <head>
     <title>READER</title>
-    <jsp:include page="../head.jsp"/>
+    <jsp:include page="head.jsp"/>
 
 </head>
 <body>
-<jsp:include page="../menu.jsp"/>
+<jsp:include page="menu.jsp"/>
 <table class="table table-hover">
     <thead>
     <tr>

@@ -13,8 +13,8 @@ public class ReaderController {
     ReaderService readerService;
 
     @GetMapping("/reader")
-    public String getOrders(Model model) {
+    public String getReader(Model model) {
         model.addAttribute("readers", readerService.findAll());
-        return "reader/reader";
+        return "reader";
     }
 }

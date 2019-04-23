@@ -9,11 +9,11 @@
 --%>
 <html>
 <head>
-    <jsp:include page="../head.jsp"/>
+    <jsp:include page="head.jsp"/>
     <title>Book</title>
 </head>
 <body>
-<jsp:include page="../menu.jsp"/>
+<jsp:include page="menu.jsp"/>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -40,9 +40,9 @@
             </td>
         </tr>
     </c:forEach>
-
     </tbody>
-</table></body>
+</table>
+</body>
 <div>
     <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
        role="button" aria-expanded="false" aria-controls="menu">Create Book</a>
