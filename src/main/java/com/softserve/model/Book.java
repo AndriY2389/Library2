@@ -37,5 +37,4 @@ public class Book {
     @OneToMany(fetch = FetchType.LAZY, mappedBy="books")
     private List<Order> orders;
 
-
 }

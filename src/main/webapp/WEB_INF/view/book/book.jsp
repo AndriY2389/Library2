@@ -17,7 +17,7 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th scope="col ">id</th>
+        <th scope="col ">Id</th>
         <th scope="col">Book Name</th>
         <th scope="col">Release Date</th>
         <th scope="col">Valid</th>
@@ -35,9 +35,8 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"/>
+            <td >
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
     </c:forEach>
@@ -45,9 +44,6 @@
     </tbody>
 </table></body>
 <form action="/create_book" class="col1 col">
-    <input type="submit" class="create_buttom btn btn-primary" value="Create Book"/>
-</form>
-<form action="/delete_book" class="col1 col">
-    <input type="submit" class="create_buttom btn btn-danger" value="DELETE"/>
+    <input type="submit" class="create_button btn btn-primary" value="Create Book"/>
 </form>
 </html>

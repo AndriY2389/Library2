@@ -1,7 +1,6 @@
 package com.softserve.dao.impl;
 
 import com.softserve.dao.generic.IGenericDAO;
-import com.softserve.model.Author;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

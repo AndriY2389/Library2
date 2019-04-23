@@ -24,4 +24,5 @@ public class Reader {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy="readers")
     private List<Order> orders;
+
 }
