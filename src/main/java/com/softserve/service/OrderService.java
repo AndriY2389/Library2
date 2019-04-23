@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface OrderService {
 
-    void save(Order entity);
+    boolean save(Order entity);
 
-    void delete(Order entity);
+    boolean delete(Order entity);
 
     List<Order> findAll();
 
-    void update(Order entity);
+    boolean update(Order entity);
 
     Order findById(Integer id);
 
-    void deleteById(Integer id);
+    boolean deleteById(Integer id);
 }

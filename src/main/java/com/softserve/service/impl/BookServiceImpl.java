@@ -21,7 +21,6 @@ public class BookServiceImpl implements BookService {
         bookDAO.save(entity);
         return true;
     }
-
     @Override
     @Transactional
     public boolean delete(Book entity) {

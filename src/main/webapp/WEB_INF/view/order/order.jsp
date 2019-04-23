@@ -36,9 +36,8 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"/>
+            <td >
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
     </c:forEach>
@@ -48,9 +47,6 @@
 
 <form action="/create_order" class="col1 col">
     <input type="submit" class="create_button btn btn-primary" value="Create Order"/>
-</form>
-<form action="/delete_order" class="col1 col">
-    <input type="submit" class="create_button btn btn-danger" value="DELETE"/>
 </form>
 </body>
 </html>

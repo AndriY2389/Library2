@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface ReaderService {
 
-    void save(Reader entity);
+    boolean save(Reader entity);
 
-    void delete(Reader entity);
+    boolean delete(Reader entity);
 
     List<Reader> findAll();
 
-    void update(Reader entity);
+    boolean update(Reader entity);
 
     Reader findById(Integer id);
 
-    void deleteById(Integer id);
+    boolean deleteById(Integer id);
 }

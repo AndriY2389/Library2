@@ -5,6 +5,7 @@ import com.softserve.model.Order;
 import com.softserve.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,13 +16,17 @@ public class OrderServiceImpl implements OrderService {
     OrderDAO orderDAO;
 
     @Override
-    public void save(Order entity) {
-
+    @Transactional
+    public boolean save(Order entity) {
+        orderDAO.save(entity);
+        return true;
     }
 
     @Override
-    public void delete(Order entity) {
-
+    @Transactional
+    public boolean delete(Order entity) {
+        orderDAO.delete(entity);
+        return true;
     }
 
     @Override
@@ -30,17 +35,21 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void update(Order entity) {
-
+    @Transactional
+    public boolean update(Order entity) {
+        orderDAO.update(entity);
+        return true;
     }
 
     @Override
     public Order findById(Integer id) {
-        return null;
+        return orderDAO.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
-
+    @Transactional
+    public boolean deleteById(Integer id) {
+        orderDAO.deleteById(id);
+        return true;
     }
 }
