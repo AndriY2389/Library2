@@ -17,7 +17,7 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th scope="col ">id</th>
+        <th scope="col ">Id</th>
         <th scope="col">Book Name</th>
         <th scope="col">Release Date</th>
         <th scope="col">Valid</th>
@@ -35,19 +35,27 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"/>
+            <td >
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
     </c:forEach>
 
     </tbody>
 </table></body>
-<form action="/create_book" class="col1 col">
-    <input type="submit" class="create_button btn btn-primary" value="Create Book"/>
-</form>
-<form action="/delete_book" class="col1 col">
-    <input type="submit" class="create_button btn btn-danger" value="DELETE"/>
-</form>
+<div>
+    <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
+       role="button" aria-expanded="false" aria-controls="menu">Create Book</a>
+    <div class="collapse multi-collapse" id="menu">
+        <div class="card card-body">
+            <form action="/" class="col"><!--sasha add action on submit here -->
+                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="?????? authors" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="submit" class="btn btn-primary" value="submit"/>
+            </form>
+        </div>
+    </div>
+</div>
 </html>

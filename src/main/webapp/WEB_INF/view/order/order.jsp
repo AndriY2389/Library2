@@ -36,9 +36,8 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"/>
+            <td >
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
     </c:forEach>
@@ -46,11 +45,20 @@
     </tbody>
 </table>
 
-<form action="/create_order" class="col1 col">
-    <input type="submit" class="create_button btn btn-primary" value="Create Order"/>
-</form>
-<form action="/delete_order" class="col1 col">
-    <input type="submit" class="create_button btn btn-danger" value="DELETE"/>
-</form>
+<div>
+    <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
+       role="button" aria-expanded="false" aria-controls="menu">Create Order</a>
+    <div class="collapse multi-collapse" id="menu">
+        <div class="card card-body">
+            <form action="/" class="col"><!--sasha add action on submit here -->
+                <input type="text" class="form-control" placeholder="Book Id" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Date of Issuance" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Date of Return" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Reader Id" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="submit" class="btn btn-primary" value="submit"/>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
