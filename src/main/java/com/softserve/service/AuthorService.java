@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface AuthorService {
 
-    void save(Author entity);
+    boolean save(Author entity);
 
-    void delete(Author entity);
+    boolean delete(Author entity);
 
     List<Author> findAll();
 
-    void update(Author entity);
+    boolean update(Author entity);
 
     Author findById(Integer id);
 
-    void deleteById(Integer id);
+    boolean deleteById(Integer id);
 }
