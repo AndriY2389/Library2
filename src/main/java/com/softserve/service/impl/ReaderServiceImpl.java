@@ -5,6 +5,7 @@ import com.softserve.model.Reader;
 import com.softserve.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,13 +16,17 @@ public class ReaderServiceImpl implements ReaderService {
     ReaderDAO readerDAO;
 
     @Override
-    public void save(Reader entity) {
-
+    @Transactional
+    public boolean save(Reader entity) {
+        readerDAO.save(entity);
+        return true;
     }
 
     @Override
-    public void delete(Reader entity) {
-
+    @Transactional
+    public boolean delete(Reader entity) {
+        readerDAO.delete(entity);
+        return true;
     }
 
     @Override
@@ -30,17 +35,21 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    public void update(Reader entity) {
-
+    @Transactional
+    public boolean update(Reader entity) {
+        readerDAO.update(entity);
+        return true;
     }
 
     @Override
     public Reader findById(Integer id) {
-        return null;
+        return readerDAO.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
-
+    @Transactional
+    public boolean deleteById(Integer id) {
+        readerDAO.deleteById(id);
+        return true;
     }
 }

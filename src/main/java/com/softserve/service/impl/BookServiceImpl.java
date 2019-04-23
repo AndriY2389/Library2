@@ -5,6 +5,7 @@ import com.softserve.model.Book;
 import com.softserve.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,13 +16,17 @@ public class BookServiceImpl implements BookService {
     BookDAO bookDAO;
 
     @Override
-    public void save(Book entity) {
-
+    @Transactional
+    public boolean save(Book entity) {
+        bookDAO.save(entity);
+        return true;
     }
 
     @Override
-    public void delete(Book entity) {
-
+    @Transactional
+    public boolean delete(Book entity) {
+        bookDAO.delete(entity);
+        return true;
     }
 
     @Override
@@ -30,17 +35,21 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void update(Book entity) {
-
+    @Transactional
+    public boolean update(Book entity) {
+        bookDAO.update(entity);
+        return true;
     }
 
     @Override
     public Book findById(Integer id) {
-        return null;
+        return bookDAO.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
-
+    @Transactional
+    public boolean deleteById(Integer id) {
+        bookDAO.deleteById(id);
+        return true;
     }
 }
