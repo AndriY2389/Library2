@@ -9,10 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="head.jsp"/>
-<body>
-<div id="header">
-  <jsp:include page="menu.jsp"/>
-</div>
-
-</body>
+  <body class="body_index">
+    <div id="header">
+      <jsp:include page="menu.jsp"/>
+    </div>
+  </body>
 </html>

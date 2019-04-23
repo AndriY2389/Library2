@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: Oleksandr
@@ -6,7 +7,6 @@
   Time: 15:36
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <jsp:include page="../head.jsp"/>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-<table class="table table-hover col_table">
+<table class="table table-hover">
     <thead>
     <tr>
         <th scope="col ">id</th>
@@ -26,36 +26,28 @@
     </tr>
     </thead>
     <tbody>
-    <%--<c:forEach var="book" items="${books}" varStatus="rowCounter">--%>
-        <%--<tr>--%>
-            <%--<td>${book.getId()}</td>--%>
-            <%--<td>${book.getName()}</td>--%>
-            <%--<td>${book.getReleaseDate().toString()}</td>--%>
-            <%--<td>${book.isAvailable()}</td>--%>
-            <%--<td>--%>
-                <%--<button type="button" class="btn btn-danger">Update</button>--%>
-            <%--</td>--%>
-            <%--<td class="form-check">--%>
-                <%--<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">--%>
-                <%--<label class="form-check-label" for="defaultCheck1">--%>
-                    <%--Delete--%>
-                <%--</label>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-    <%--</c:forEach>--%>
+    <c:forEach var="book" items="${books}" varStatus="rowCounter">
         <tr>
-            <td>1</td>
-            <td>sdgsdgsdg</td>
-            <td>sdsdfsdfsdfsdfsdf</td>
-            <td>dffgdfgddfgdffgdfg</td>
+            <td>${book.getId()}</td>
+            <td>${book.getName()}</td>
+            <td>${book.getReleaseDate().toString()}</td>
+            <td>${book.available}</td>
             <td>
-                <button type="button button_update" class="btn btn2 btn-danger">Update</button>
+                <button type="button" class="btn btn-outline-info">Update</button>
             </td>
             <td class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1"/>
             </td>
         </tr>
+    </c:forEach>
+
     </tbody>
 </table></body>
+<form action="/create_book" class="col1 col">
+    <input type="submit" class="create_buttom btn btn-primary" value="Create Book"/>
+</form>
+<form action="/delete_book" class="col1 col">
+    <input type="submit" class="create_buttom btn btn-danger" value="DELETE"/>
+</form>
 </html>

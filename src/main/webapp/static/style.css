@@ -2,7 +2,12 @@
     font-size: 36px;
     font-family: Arial;
 }
-
+/*#background {*/
+    /*background-image: url("/static/silky-blue-background.jpg");*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+/*}*/
 .menu{
     margin-top:20px;
 }
@@ -12,12 +17,22 @@
 }
 .table {
     margin-top: 30px;
-
+    width: 77%;
+    float: right;
+    margin-right: 30px;
 }
-.col_table {
-
+.form-check-input{
+    margin-left: 1.4rem;
 }
 .btn2{
     font-size: 10px;
+}
+.create_buttom {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.col1 {
+    width: 23%;
 }
 
