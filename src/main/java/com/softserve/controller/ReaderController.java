@@ -15,6 +15,6 @@ public class ReaderController {
     @GetMapping("/reader")
     public String getReader(Model model) {
         model.addAttribute("readers", readerService.findAll());
-        return "reader";
+        return "reader/reader";
     }
 }

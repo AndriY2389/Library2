@@ -15,6 +15,6 @@ public class OrderController {
     @GetMapping("/order")
     public String getOrders(Model model){
         model.addAttribute("orders", orderService.findAll());
-        return "order";
+        return "order/order";
     }
 }

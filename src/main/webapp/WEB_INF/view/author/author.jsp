@@ -8,10 +8,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <jsp:include page="head.jsp"/>
+    <jsp:include page="../head.jsp"/>
     <title>Author</title>
 <body>
-<jsp:include page="menu.jsp"/>
+<jsp:include page="../menu.jsp"/>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -23,16 +23,20 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="authors" items="${authors}" varStatus="rowCounter">
+    <c:forEach var="author" items="${authors}" varStatus="rowCounter">
         <tr>
-            <td>${authors.getId()}</td>
-            <td>${authors.getFirstName()}</td>
-            <td>${authors.getLastName()}</td>
+            <td>${author.getId()}</td>
+            <td>${author.getFirstName()}</td>
+            <td>${author.getLastName()}</td>
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
             <td >
-                <button type="button" class="btn btn-outline-danger">Delete</button>
+                <form action="/delete_author" method="post">
+                    <input type="hidden" name="id" value="${author.getId()}">
+                    <input type="submit" class="btn btn-outline-danger"value="Delete"/>
+                </form>
+
             </td>
         </tr>
     </c:forEach>

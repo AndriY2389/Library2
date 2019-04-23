@@ -9,11 +9,11 @@
 --%>
 <html>
 <head>
-    <jsp:include page="head.jsp"/>
+    <jsp:include page="../head.jsp"/>
     <title>Book</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"/>
+<jsp:include page="../menu.jsp"/>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -35,7 +35,7 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td >
+            <td>
                 <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
@@ -49,10 +49,19 @@
     <div class="collapse multi-collapse" id="menu">
         <div class="card card-body">
             <form action="/" class="col"><!--sasha add action on submit here -->
-                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="?????? authors" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
+                <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>Choose Author</option>
+                    <c:forEach var="author" items="${authors}" varStatus="rowCounter">
+                        <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
+                    </c:forEach>
+                    <!--add redirect to create author -->
+                </select>
+                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
