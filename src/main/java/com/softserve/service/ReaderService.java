@@ -1,7 +1,6 @@
 package com.softserve.service;
 
 import com.softserve.model.Reader;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

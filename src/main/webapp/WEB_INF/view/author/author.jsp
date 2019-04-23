@@ -32,7 +32,11 @@
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
             <td >
-                <button type="button" class="btn btn-outline-danger">Delete</button>
+                <form action="/delete_author" method="post">
+                    <input type="hidden" name="id" value="${author.getId()}">
+                    <input type="submit" class="btn btn-outline-danger"value="Delete"/>
+                </form>
+
             </td>
         </tr>
     </c:forEach>
@@ -44,9 +48,9 @@
    role="button" aria-expanded="false" aria-controls="menu">Create Author</a>
     <div class="collapse multi-collapse" id="menu">
         <div class="card card-body">
-            <form action="/" class="col"><!--sasha add action on submit here -->
-                <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <form action="/create_author" method="post" class="col"><!--sasha add action on submit here -->
+                <input type="text" name="FirstName" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" name="LastName" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>

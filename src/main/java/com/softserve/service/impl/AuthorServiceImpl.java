@@ -19,7 +19,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public boolean save(Author entity) {
         authorDAO.save(entity);
-        return true;
+        return false;
     }
 
     @Transactional
