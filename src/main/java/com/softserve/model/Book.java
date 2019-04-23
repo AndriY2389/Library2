@@ -19,7 +19,7 @@ public class Book {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Books_authors",
             joinColumns = {@JoinColumn(name = "book_id")},

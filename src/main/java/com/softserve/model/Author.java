@@ -21,11 +21,9 @@ public class Author {
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors",cascade = CascadeType.REMOVE)
     private List<Book> books;
 
     @Column(name = "LAST_NAME")
     private String lastName;
-
-
 }
