@@ -5,6 +5,7 @@ import com.softserve.model.Author;
 import com.softserve.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,12 +16,17 @@ public class AuthorServiceImpl implements AuthorService {
     AuthorDAO authorDAO;
 
     @Override
-    public void save(Author entity) {
+    @Transactional
+    public boolean save(Author entity) {
+        authorDAO.save(entity);
+        return true;
     }
 
     @Override
-    public void delete(Author entity) {
-
+    @Transactional
+    public boolean delete(Author entity) {
+        authorDAO.delete(entity);
+        return true;
     }
 
     @Override
@@ -29,17 +35,21 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public void update(Author entity) {
-
+    @Transactional
+    public boolean update(Author entity) {
+        authorDAO.update(entity);
+        return true;
     }
 
     @Override
     public Author findById(Integer id) {
-        return null;
+        return authorDAO.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
-
+    @Transactional
+    public boolean deleteById(Integer id) {
+        authorDAO.deleteById(id);
+        return true;
     }
 }
