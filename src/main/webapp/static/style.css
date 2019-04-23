@@ -12,7 +12,11 @@
     width: 170px;
     margin-left: 20px;
     margin-top: 2px;
-
+    padding: 5px;
+}
+.btn-primary{
+    margin-left: 55px;
+    margin-top: 15px;
 }
 .form-control{
     margin-top: 2px;

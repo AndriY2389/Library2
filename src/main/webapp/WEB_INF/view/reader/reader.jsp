@@ -42,9 +42,18 @@
 
     </tbody>
 </table>
-
-<form action="/create_reader" class="col1 col">
-    <input type="submit" class="create_button btn btn-primary" value="Create Author"/>
-</form>
+<div>
+    <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
+       role="button" aria-expanded="false" aria-controls="menu">Create Reader</a>
+    <div class="collapse multi-collapse" id="menu">
+        <div class="card card-body">
+            <form action="/" class="col"><!--sasha add action on submit here -->
+                <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="submit" class="btn btn-primary" value="submit"/>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
