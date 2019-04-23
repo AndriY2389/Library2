@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findAll() {
-        return null;
+        return orderDAO.findAll();
     }
 
     @Override
