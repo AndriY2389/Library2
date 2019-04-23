@@ -16,5 +16,6 @@ public class AuthorController {
     public String getOrders(Model model) {
         model.addAttribute("authors", authorService.findAll());
         return "author/author";
+
     }
 }
