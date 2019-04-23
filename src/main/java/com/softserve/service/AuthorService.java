@@ -17,4 +17,6 @@ public interface AuthorService {
     Author findById(Integer id);
 
     boolean deleteById(Integer id);
+
+    Author findByName(String name);
 }

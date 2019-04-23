@@ -61,4 +61,6 @@ public abstract class AbstractDAO<T,ID> implements IGenericDAO<T,ID> {
         T entity = findById(id);
         entityManager.remove(entity);
     }
+
+
 }
