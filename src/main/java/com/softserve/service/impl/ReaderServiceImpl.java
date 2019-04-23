@@ -26,7 +26,7 @@ public class ReaderServiceImpl implements ReaderService {
 
     @Override
     public List<Reader> findAll() {
-        return null;
+        return readerDAO.findAll();
     }
 
     @Override
