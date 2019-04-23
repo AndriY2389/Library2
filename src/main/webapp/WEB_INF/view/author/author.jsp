@@ -23,11 +23,11 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="authors" items="${authors}" varStatus="rowCounter">
+    <c:forEach var="author" items="${authors}" varStatus="rowCounter">
         <tr>
-            <td>${authors.getId()}</td>
-            <td>${authors.getFirstName()}</td>
-            <td>${authors.getLastName()}</td>
+            <td>${author.getId()}</td>
+            <td>${author.getFirstName()}</td>
+            <td>${author.getLastName()}</td>
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>

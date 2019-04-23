@@ -35,24 +35,34 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td >
+            <td>
                 <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
     </c:forEach>
 
     </tbody>
-</table></body>
+</table>
+</body>
 <div>
     <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
        role="button" aria-expanded="false" aria-controls="menu">Create Book</a>
     <div class="collapse multi-collapse" id="menu">
         <div class="card card-body">
             <form action="/" class="col"><!--sasha add action on submit here -->
-                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="?????? authors" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
+                <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>Choose Author</option>
+                    <c:forEach var="author" items="${authors}" varStatus="rowCounter">
+                        <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
+                    </c:forEach>
+                    <!--add redirect to create author -->
+                </select>
+                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username"
+                       aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
