@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional
 public class AuthorDAOimpl extends AbstractDAO<Author, Integer> implements AuthorDAO {
     public AuthorDAOimpl() {
         super(Author.class);

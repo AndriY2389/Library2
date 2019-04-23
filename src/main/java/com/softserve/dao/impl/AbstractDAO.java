@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Transactional
 public abstract class AbstractDAO<T,ID> implements IGenericDAO<T,ID> {
 
     private Class<T> clazz;

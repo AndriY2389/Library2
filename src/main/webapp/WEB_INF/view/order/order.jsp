@@ -26,13 +26,13 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="orders" items="${orders}" varStatus="rowCounter">
+    <c:forEach var="order" items="${orders}" varStatus="rowCounter">
         <tr>
-            <td>${orders.getId()}</td>
-            <td>${orders.getBooks().getId()}</td>
-            <td>${orders.getDateOfIssuance()}</td>
-            <td>${orders.getDateOfReturn()}</td>
-            <td>${orders.getReaders().getId()}</td>
+            <td>${order.getId()}</td>
+            <td>${order.getBooks().getId()}</td>
+            <td>${order.getDateOfIssuance()}</td>
+            <td>${order.getDateOfReturn()}</td>
+            <td>${order.getReaders().getId()}</td>
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>

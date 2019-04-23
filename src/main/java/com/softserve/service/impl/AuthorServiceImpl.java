@@ -15,15 +15,15 @@ public class AuthorServiceImpl implements AuthorService {
     @Autowired
     AuthorDAO authorDAO;
 
-    @Override
     @Transactional
+    @Override
     public boolean save(Author entity) {
         authorDAO.save(entity);
         return true;
     }
 
-    @Override
     @Transactional
+    @Override
     public boolean delete(Author entity) {
         authorDAO.delete(entity);
         return true;
@@ -34,8 +34,8 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDAO.findAll();
     }
 
-    @Override
     @Transactional
+    @Override
     public boolean update(Author entity) {
         authorDAO.update(entity);
         return true;
@@ -46,8 +46,8 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDAO.findById(id);
     }
 
-    @Override
     @Transactional
+    @Override
     public boolean deleteById(Integer id) {
         authorDAO.deleteById(id);
         return true;
