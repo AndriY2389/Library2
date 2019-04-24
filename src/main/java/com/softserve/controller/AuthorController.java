@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.nio.charset.StandardCharsets;
-
-import static java.nio.charset.StandardCharsets.*;
-
 @Controller
 public class AuthorController {
 
@@ -32,7 +28,6 @@ public class AuthorController {
         Author author = new Author();
         author.setFirstName(firstName);
         author.setLastName(lastName);
-
         if (!authorService.save(author)) {
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
             model.addAttribute("authors", authorService.findAll());

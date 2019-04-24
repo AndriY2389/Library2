@@ -1,6 +1,7 @@
 package com.softserve.service.impl;
 
 import com.softserve.dao.generic.AuthorDAO;
+import com.softserve.dto.AuthorDTO;
 import com.softserve.model.Author;
 import com.softserve.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     @Override
     public boolean save(Author entity) {
-        if(conditionCreate(entity) && isAuthorInputRigth(entity)){
+        AuthorDTO authorDTO = new AuthorDTO(entity);
+        if (conditionCreate(entity) && isAuthorInputRigth(authorDTO)) {
             authorDAO.save(entity);
             return true;
         } else {
@@ -30,15 +32,9 @@ public class AuthorServiceImpl implements AuthorService {
 
     private boolean conditionCreate(Author entity) {
         boolean condition = true;
-        if(entity.getFirstName().equals("")||entity.getLastName().equals("")){
+        if (entity.getFirstName().equals("") || entity.getLastName().equals("")) {
             condition = false;
         }
-
-
-
-
-
-
         return condition;
     }
 
@@ -54,20 +50,23 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDAO.findAll();
     }
 
-    @Transactional
     @Override
+    @Transactional
     public boolean update(Author entity) {
-        Author author = findById(entity.getId());
-        if(entity.getFirstName().equals("")&&entity.getLastName().equals("")){
+        AuthorDTO author = new AuthorDTO(findById(entity.getId()));
+        if (entity.getFirstName().equals("") && entity.getLastName().equals("")) {
             return false;
         }
-        if(!entity.getLastName().equals("")){
+        if (!entity.getLastName().equals("")) {
             author.setLastName(entity.getLastName());
         }
-        if(!entity.getFirstName().equals("")){
+        if (!entity.getFirstName().equals("")) {
             author.setFirstName(entity.getFirstName());
         }
-        authorDAO.update(author);
+        if (!isAuthorInputRigth(author)) {
+            return false;
+        }
+        authorDAO.update(author.getAuthor());
         return true;
     }
 
@@ -97,13 +96,10 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public boolean isAuthorInputRigth(Author entity) {
+    public boolean isAuthorInputRigth(AuthorDTO entity) {
         Pattern pattern = Pattern.compile("[A-Za-z]+[ -]?[A-Za-z]+");
         Matcher firstNameMatcher = pattern.matcher(entity.getFirstName());
         Matcher lastNameMatcher = pattern.matcher(entity.getLastName());
-        if (firstNameMatcher.matches() && lastNameMatcher.matches()) {
-            return true;
-        }
-        return false;
+        return firstNameMatcher.matches() && lastNameMatcher.matches();
     }
 }
