@@ -1,5 +1,6 @@
 package com.softserve.service;
 
+import com.softserve.dto.ReaderDTO;
 import com.softserve.model.Reader;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public interface ReaderService {
 
     boolean deleteById(Integer id);
 
-    boolean isReaderInputRigth(Reader entity);
+    boolean isReaderInputRigth(ReaderDTO entity);
 }

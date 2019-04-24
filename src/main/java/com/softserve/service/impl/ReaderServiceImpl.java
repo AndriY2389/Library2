@@ -1,6 +1,8 @@
 package com.softserve.service.impl;
 
 import com.softserve.dao.generic.ReaderDAO;
+import com.softserve.dto.AuthorDTO;
+import com.softserve.dto.ReaderDTO;
 import com.softserve.model.Reader;
 import com.softserve.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,25 @@ public class ReaderServiceImpl implements ReaderService {
     @Autowired
     ReaderDAO readerDAO;
 
+     private ReaderDTO readerDTO;
+
     @Override
     @Transactional
     public boolean save(Reader entity) {
-        if (isReaderInputRigth(entity)) {
+        readerDTO = new ReaderDTO(entity);
+        if (conditionCreate(entity) && isReaderInputRigth(readerDTO)) {
             readerDAO.save(entity);
+            return true;
         }
         return false;
+    }
+
+    private boolean conditionCreate(Reader entity) {
+        boolean condition = true;
+        if (entity.getFirstName().equals("") || entity.getLastName().equals("")) {
+            condition = false;
+        }
+        return condition;
     }
 
     @Override
@@ -41,10 +55,21 @@ public class ReaderServiceImpl implements ReaderService {
     @Override
     @Transactional
     public boolean update(Reader entity) {
-        if (isReaderInputRigth(entity)) {
-            readerDAO.update(entity);
+        readerDTO = new ReaderDTO(findById(entity.getId()));
+        if (entity.getFirstName().equals("") && entity.getLastName().equals("")) {
+            return false;
         }
-        return false;
+        if (!entity.getLastName().equals("")) {
+            readerDTO.setLastName(entity.getLastName());
+        }
+        if (!entity.getFirstName().equals("")) {
+            readerDTO.setFirstName(entity.getFirstName());
+        }
+        if (!isReaderInputRigth(readerDTO)) {
+            return false;
+        }
+        readerDAO.update(readerDTO.getReader());
+        return true;
     }
 
     @Override
@@ -60,13 +85,10 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    public boolean isReaderInputRigth(Reader entity) {
+    public boolean isReaderInputRigth(ReaderDTO entity) {
         Pattern pattern = Pattern.compile("[A-Za-z]+[ -]?[A-Za-z]+");
         Matcher firstNameMatcher = pattern.matcher(entity.getFirstName());
         Matcher lastNameMatcher = pattern.matcher(entity.getLastName());
-        if (firstNameMatcher.matches() && lastNameMatcher.matches()) {
-            return true;
-        }
-        return false;
+        return (firstNameMatcher.matches() && lastNameMatcher.matches());
     }
 }
