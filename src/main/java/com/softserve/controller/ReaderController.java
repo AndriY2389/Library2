@@ -38,7 +38,6 @@ public class ReaderController {
         }
     }
 
-
     @PostMapping("/delete_reader")
     public String deleteReader(@RequestParam(name = "id") String id){
         readerService.deleteById(Integer.parseInt(id));

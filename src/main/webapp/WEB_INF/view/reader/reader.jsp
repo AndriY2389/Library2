@@ -75,6 +75,9 @@
             </form>
         </div>
     </div>
+    <div class="invalid_data" style="color: red">
+        ${invalid_data}
+    </div>
 </div>
 </body>
 </html>
