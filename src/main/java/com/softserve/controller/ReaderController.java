@@ -23,12 +23,19 @@ public class ReaderController {
 
     @PostMapping("/create_reader")
     public String createReader(@RequestParam(name = "FirstName") String firstName,
-                               @RequestParam(name = "LastName") String lastName){
+                               @RequestParam(name = "LastName") String lastName,
+                               Model model){
         Reader reader = new Reader();
         reader.setFirstName(firstName);
         reader.setLastName(lastName);
-        readerService.save(reader);
-        return "redirect:/reader";
+
+        if (readerService.save(reader)) {
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("reader", readerService.findAll());
+            return "reader/reader";
+        } else {
+            return "redirect:/reader";
+        }
     }
 
 
@@ -36,5 +43,23 @@ public class ReaderController {
     public String deleteReader(@RequestParam(name = "id") String id){
         readerService.deleteById(Integer.parseInt(id));
         return "redirect:/reader";
+    }
+
+    @PostMapping("/update_reader")
+    public String updateReader(@RequestParam(name = "FirstName") String firstName,
+                               @RequestParam(name = "LastName") String lastName,
+                               @RequestParam(name = "id") Integer id,
+                               Model model) {
+        Reader reader = new Reader();
+        reader.setFirstName(firstName);
+        reader.setId(id);
+        reader.setLastName(lastName);
+        if (!readerService.update(reader)) {
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("readers", readerService.findAll());
+            return "reader/reader";
+        } else {
+            return "redirect:/reader";
+        }
     }
 }
