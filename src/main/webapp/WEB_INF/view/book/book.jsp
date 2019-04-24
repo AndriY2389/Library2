@@ -20,6 +20,7 @@
         <th scope="col ">Id</th>
         <th scope="col">Book Name</th>
         <th scope="col">Release Date</th>
+        <th scope="col">Author</th>
         <th scope="col">Valid</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -31,6 +32,7 @@
             <td>${book.getId()}</td>
             <td>${book.getName()}</td>
             <td>${book.getReleaseDate().toString()}</td>
+            <td>${book.getAuthor().getFirstName()}  ${book.getAuthor().getLastName()}</td>
             <td>${book.available}</td>
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
