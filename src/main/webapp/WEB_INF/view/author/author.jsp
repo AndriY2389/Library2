@@ -38,13 +38,14 @@
                     <input type="hidden" name="id" value="${author.getId()}">
                     <input type="submit" class="btn btn-outline-danger"value="Delete"/>
                 </form>
-
             </td>
         </tr>
 
         <tr>
             <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0;">
+                <form method="post" action="/update_author">
                 <div class="accordian-body collapse" id="demo${author.getId()}">
+                    <input type="hidden", name="id" value="${author.getId()}">
                     <div class="author_first_name">
                         <input type="text" name="FirstName" class="form-control " placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     </div>
@@ -52,7 +53,9 @@
                         <input type="text" name="LastName" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     </div>
                     <input  type="submit" class="btn btn-outline-success btn-submit" value="submit"/>
+
                 </div>
+                </form>
         </tr>
     </c:forEach>
 
@@ -71,6 +74,9 @@
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
+    </div>
+    <div class="invalid_data" style="color: red">
+        ${invalid_data}
     </div>
 </div>
 </body>

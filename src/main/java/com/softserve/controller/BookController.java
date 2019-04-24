@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Date;
 
 @Controller
 public class BookController {
@@ -48,7 +47,6 @@ public class BookController {
         book.setName(name);
         book.setAvailable(true);
         book.setAuthor(author);
-
 
         if (!bookService.save(book) || Integer.parseInt(idOfAuthor) == 0) {
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
