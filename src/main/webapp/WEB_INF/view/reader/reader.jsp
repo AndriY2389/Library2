@@ -31,7 +31,7 @@
             <td>${reader.getFirstName()}</td>
             <td>${reader.getLastName()}</td>
             <td>
-                <button type="button" class="btn btn-outline-info">Update</button>
+                <button type="button" data-toggle="collapse" data-target="#demo${reader.getId()}" class="btn btn-outline-info accordion-toggle">Update</button>
             </td>
             <td >
                 <form action="/delete_reader" method="post">
@@ -39,6 +39,23 @@
                     <input type="submit" class="btn btn-outline-danger"value="Delete"/>
                 </form>
             </td>
+        </tr>
+
+        <tr>
+            <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0;">
+                <form method="post" action="/update_reader">
+                    <div class="accordian-body collapse" id="demo${reader.getId()}">
+                        <input type="hidden", name="id" value="${reader.getId()}">
+                        <div class="author_first_name">
+                            <input type="text" name="FirstName" class="form-control " placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="author_last_name">
+                            <input type="text" name="LastName" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <input  type="submit" class="btn btn-outline-success btn-submit" value="submit"/>
+
+                    </div>
+                </form>
         </tr>
     </c:forEach>
 

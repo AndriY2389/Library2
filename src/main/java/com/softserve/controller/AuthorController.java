@@ -28,7 +28,6 @@ public class AuthorController {
         Author author = new Author();
         author.setFirstName(firstName);
         author.setLastName(lastName);
-
         if (!authorService.save(author)) {
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
             model.addAttribute("authors", authorService.findAll());
