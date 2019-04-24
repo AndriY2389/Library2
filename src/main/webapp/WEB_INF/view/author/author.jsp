@@ -42,7 +42,7 @@
         </tr>
 
         <tr>
-            <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0;">
+            <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0; margin-block-end: 0em; font-size: 0px">
                 <form method="post" action="/update_author">
                 <div class="accordian-body collapse" id="demo${author.getId()}">
                     <input type="hidden", name="id" value="${author.getId()}">
