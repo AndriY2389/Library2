@@ -11,8 +11,7 @@
 .author_first_name {
     display: inline-block;
     width: 10%;
-    margin-left: 115px;
-
+    margin-left: 100px;
 }
 
 .author_last_name{
@@ -29,9 +28,10 @@
     border: none;
 }
 .btn-submit{
-    margin-left: 155px;
+    margin-left: 220px;
     margin-bottom: 5px;
 }
+
 .btn-primary{
     margin-left: 55px;
     margin-top: 15px;
@@ -86,3 +86,16 @@
     margin-left:35px;
 }
 
+.book_buttons{
+    width:16%;
+    display:inline-block;
+    margin-left:40px;
+}
+
+.accordian-body{
+    margin-left:19px;
+}
+.btn-submit-book{
+    margin-left: 144px;
+    margin-bottom: 5px;
+}

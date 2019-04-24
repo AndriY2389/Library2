@@ -45,19 +45,23 @@
         <tr>
             <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0; margin-block-end: 0em; font-size: 0px">
                 <form method="post" action="/update_book">
-                    <div class="accordian-body collapse" id="demo${book.getId()}">
+                    <div class="accordian-body collapse row" id="demo${book.getId()}">
                         <input type="hidden", name="id" value="${book.getId()}">
-                        <div class="author_first_name">
-                            <input type="text" name="BookName" class="form-control " placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="book_buttons">
+                            <input type="text" name="name" class="form-control " placeholder="Name of book" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
-                        <div class="author_last_name">
-                            <input type="text" name="ReleaseDate" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="book_buttons">
+                            <input type="date" required name="releaseDate" class="form-control" placeholder="ReleaseDate" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
-                        <div class="author_last_name">
-                            <input type="text" name="Author" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="book_buttons">
+                            <select required name="author" class="custom-select">
+                                <option selected value="0">Author</option>
+                                <c:forEach var="author" items="${authors}" varStatus="rowCounter">
+                                    <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
+                                </c:forEach>
+                            </select>
                         </div>
-                        <input  type="submit" class="btn btn-outline-success btn-submit" value="submit"/>
-
+                        <input  type="submit" class="btn btn-outline-success btn-submit-book" value="submit"/>
                     </div>
                 </form>
         </tr>
@@ -73,12 +77,11 @@
             <form action="/create_book" method="post" class="col">
                 <input type="text" name="name" class="form-control" placeholder="name" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
-                <select required name="author" class="custom-select" id="inputGroupSelect02">
+                <select name="author" class="custom-select" id="inputGroupSelect02">
                     <option selected value="0">Input some</option>
                     <c:forEach var="author" items="${authors}" varStatus="rowCounter">
                         <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
                     </c:forEach>
-                    <!--add redirect to create author -->
                 </select>
                 <input name="releaseDate" type="date" value="1900-01-01" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
