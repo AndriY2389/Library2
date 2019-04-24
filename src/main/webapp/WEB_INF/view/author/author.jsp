@@ -8,8 +8,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <jsp:include page="../head.jsp"/>
+<head>
     <title>Author</title>
+    <jsp:include page="../head.jsp"/>
+</head>
 <body>
 <jsp:include page="../menu.jsp"/>
 <table class="table table-hover">
@@ -31,10 +33,10 @@
             <td>
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
-            <td >
+            <td>
                 <form action="/delete_author" method="post">
                     <input type="hidden" name="id" value="${author.getId()}">
-                    <input type="submit" class="btn btn-outline-danger"value="Delete"/>
+                    <input type="submit" class="btn btn-outline-danger" value="Delete"/>
                 </form>
 
             </td>
@@ -44,13 +46,15 @@
     </tbody>
 </table>
 <div>
-<a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
-   role="button" aria-expanded="false" aria-controls="menu">Create Author</a>
+    <a class="create_button btn btn-primary" data-toggle="collapse" href="#menu"
+       role="button" aria-expanded="false" aria-controls="menu">Create Author</a>
     <div class="collapse multi-collapse" id="menu">
         <div class="card card-body">
             <form action="/create_author" method="post" class="col"><!--sasha add action on submit here -->
-                <input type="text" name="FirstName" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" name="LastName" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" name="FirstName" class="form-control" placeholder="First Name"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" name="LastName" class="form-control" placeholder="Last Name"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
