@@ -1,5 +1,6 @@
 package com.softserve.service;
 
+import com.softserve.dto.AuthorDTO;
 import com.softserve.model.Author;
 
 import java.util.List;
@@ -20,5 +21,5 @@ public interface AuthorService {
 
     Author findByName(String name);
 
-    boolean isAuthorInputRigth(Author entity);
+    boolean isAuthorInputRigth(AuthorDTO entity);
 }

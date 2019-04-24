@@ -21,7 +21,6 @@
         <th scope="col">Book Name</th>
         <th scope="col">Release Date</th>
         <th scope="col">Author</th>
-        <th scope="col">Valid</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
     </tr>
@@ -33,9 +32,8 @@
             <td>${book.getName()}</td>
             <td>${book.getReleaseDate().toString()}</td>
             <td>${book.getAuthor().getFirstName()}  ${book.getAuthor().getLastName()}</td>
-            <td>${book.available}</td>
             <td>
-                <button type="button" class="btn btn-outline-info">Update</button>
+                <button type="button" data-toggle="collapse" data-target="#demo${book.getId()}" class="btn btn-outline-info accordion-toggle">Update</button>
             </td>
             <td>
                 <form action="/delete_book" style="margin-block-end: 0em;" method="post">
@@ -44,7 +42,25 @@
                 </form>
             </td>
         </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0; margin-block-end: 0em; font-size: 0px">
+                <form method="post" action="/update_book">
+                    <div class="accordian-body collapse" id="demo${book.getId()}">
+                        <input type="hidden", name="id" value="${book.getId()}">
+                        <div class="author_first_name">
+                            <input type="text" name="BookName" class="form-control " placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="author_last_name">
+                            <input type="text" name="ReleaseDate" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <div class="author_last_name">
+                            <input type="text" name="Author" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </div>
+                        <input  type="submit" class="btn btn-outline-success btn-submit" value="submit"/>
 
+                    </div>
+                </form>
+        </tr>
     </c:forEach>
     </tbody>
 </table>
