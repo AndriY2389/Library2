@@ -58,3 +58,8 @@
     width: 23%;
 }
 
+.invalid_data{
+    position:absolute;
+    margin-left:35px;
+}
+

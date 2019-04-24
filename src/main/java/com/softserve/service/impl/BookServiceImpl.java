@@ -18,9 +18,19 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public boolean save(Book entity) {
-        bookDAO.save(entity);
-        return true;
+        if(conditionCreate(entity)){
+            bookDAO.save(entity);
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    private boolean conditionCreate(Book entity) {
+        return !entity.getName().equals("") && !entity.getReleaseDate().equals("");
+    }
+
+
     @Override
     @Transactional
     public boolean delete(Book entity) {

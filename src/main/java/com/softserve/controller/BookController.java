@@ -39,21 +39,27 @@ public class BookController {
     public String createBook(@RequestParam(name = "name") String name,
                              @RequestParam(name = "author") String idOfAuthor,
                              @RequestParam(name = "releaseDate") String releaseDate,
-                             @RequestParam(name = "available")Boolean available)
-    {
+                             Model model) {
+
+        System.out.println(releaseDate);
         Author author = authorService.findById(Integer.parseInt(idOfAuthor));
         Book book = new Book();
         book.setReleaseDate(java.sql.Date.valueOf(releaseDate));
         book.setName(name);
-        book.setAvailable(available);
+        book.setAvailable(true);
         book.setAuthor(author);
 
-        System.out.println(idOfAuthor);
-        System.out.println(name);
-        System.out.println(releaseDate);
-        System.out.println(available);
-        bookService.save(book);
-        return "redirect:/book";
+
+        if (!bookService.save(book) || Integer.parseInt(idOfAuthor) == 0) {
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("books", bookService.findAll());
+            model.addAttribute("authors", authorService.findAll());
+            return "book/book";
+        } else {
+            return "redirect:/book";
+        }
+
+
     }
 
 }

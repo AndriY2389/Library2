@@ -18,8 +18,20 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     @Override
     public boolean save(Author entity) {
-        authorDAO.save(entity);
-        return false;
+        if(conditionCreate(entity)){
+            authorDAO.save(entity);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean conditionCreate(Author entity) {
+        boolean condition = true;
+        if(entity.getFirstName().equals("")||entity.getLastName().equals("")){
+            condition = false;
+        }
+        return condition;
     }
 
     @Transactional
