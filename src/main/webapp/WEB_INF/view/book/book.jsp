@@ -52,20 +52,21 @@
             <form action="/create_book" method="post" class="col">
                 <input type="text" name="name" class="form-control" placeholder="name" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
-                <select name="author" class="custom-select" id="inputGroupSelect02">
-                    <option selected>Choose Author</option>
+                <select required name="author" class="custom-select" id="inputGroupSelect02">
+                    <option selected value="0">Input some</option>
                     <c:forEach var="author" items="${authors}" varStatus="rowCounter">
                         <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
                     </c:forEach>
                     <!--add redirect to create author -->
                 </select>
-                <input name="releaseDate" type="date" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
-                       aria-describedby="basic-addon2">
-                <input name="available" type="checkbox" class="form-control" placeholder="available" aria-label="Recipient's username"
+                <input name="releaseDate" type="date" value="1900-01-01" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
+    </div>
+    <div class="invalid_data" style="color: red">
+        ${invalid_data}
     </div>
 </div>
 </html>

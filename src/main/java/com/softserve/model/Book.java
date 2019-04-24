@@ -21,13 +21,9 @@ public class Book {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "Books_authors",
-            joinColumns = {@JoinColumn(name = "book_id")},
-            inverseJoinColumns = {@JoinColumn(name = "author_id")}
-    )
-    private List<Author> authors;
+    @ManyToOne
+    @JoinTable(name = "AUTHOR_ID")
+    private Author author;
 
     @Column(name = "RELEASE_DATE")
     @Temporal(value = TemporalType.DATE)

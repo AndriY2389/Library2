@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
 import java.util.Date;
 
 @Controller
@@ -38,21 +37,29 @@ public class BookController {
 
     @PostMapping("/create_book")
     public String createBook(@RequestParam(name = "name") String name,
-                            // @RequestParam(name = "author") Integer idOfAuthor,
-                             @RequestParam(name = "releaseDate") Date releaseDate,
-                             @RequestParam(name = "available")Boolean available){
-        //Author author = authorService.findById(Integer.parseInt(idOfAuthor));
-        //
+                             @RequestParam(name = "author") String idOfAuthor,
+                             @RequestParam(name = "releaseDate") String releaseDate,
+                             Model model) {
+
+        System.out.println(releaseDate);
+        Author author = authorService.findById(Integer.parseInt(idOfAuthor));
         Book book = new Book();
-        book.setReleaseDate(releaseDate);
+        book.setReleaseDate(java.sql.Date.valueOf(releaseDate));
         book.setName(name);
-        book.setAvailable(available);
-        //book.setAuthors(Collections.singletonList(author));
+        book.setAvailable(true);
+        book.setAuthor(author);
 
 
+        if (!bookService.save(book) || Integer.parseInt(idOfAuthor) == 0) {
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("books", bookService.findAll());
+            model.addAttribute("authors", authorService.findAll());
+            return "book/book";
+        } else {
+            return "redirect:/book";
+        }
 
-        bookService.save(book);
-        return "redirect:/book";
+
     }
 
 }
