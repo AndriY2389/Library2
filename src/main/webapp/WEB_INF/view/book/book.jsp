@@ -36,12 +36,10 @@
                 <button type="button" class="btn btn-outline-info">Update</button>
             </td>
             <td>
-                <form action="/delete_book" method="post">
-                    <input type="hidden" name="id" value="${book.getId()}">
-                    <input type="submit" class="btn btn-outline-danger"value="Delete"/>
-                </form>
+                <button type="button" class="btn btn-outline-danger">Delete</button>
             </td>
         </tr>
+
     </c:forEach>
     </tbody>
 </table>
