@@ -24,7 +24,7 @@ public class Reader {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy="readers")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="readers",cascade = {CascadeType.REMOVE})
     private List<Order> orders;
 
 }

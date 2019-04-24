@@ -51,19 +51,19 @@
        role="button" aria-expanded="false" aria-controls="menu">Create Book</a>
     <div class="collapse multi-collapse" id="menu">
         <div class="card card-body">
-            <form action="/" class="col"><!--sasha add action on submit here -->
-                <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username"
+            <form action="/create_book" method="post" class="col">
+                <input type="text" name="name" class="form-control" placeholder="name" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
-                <select class="custom-select" id="inputGroupSelect02">
+                <select name="author" class="custom-select" id="inputGroupSelect02">
                     <option selected>Choose Author</option>
                     <c:forEach var="author" items="${authors}" varStatus="rowCounter">
                         <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
                     </c:forEach>
                     <!--add redirect to create author -->
                 </select>
-                <input type="text" class="form-control" placeholder="Release Date" aria-label="Recipient's username"
+                <input name="releaseDate" type="date" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Available" aria-label="Recipient's username"
+                <input name="available" type="checkbox" class="form-control" placeholder="available" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
