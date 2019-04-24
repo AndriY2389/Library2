@@ -17,4 +17,6 @@ public interface ReaderService {
     Reader findById(Integer id);
 
     boolean deleteById(Integer id);
+
+    boolean isReaderInputRigth(Reader entity);
 }

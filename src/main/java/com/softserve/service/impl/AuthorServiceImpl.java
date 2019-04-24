@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -18,7 +20,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     @Override
     public boolean save(Author entity) {
-        if(conditionCreate(entity)){
+        if(conditionCreate(entity) && isAuthorInputRigth(entity)){
             authorDAO.save(entity);
             return true;
         } else {
@@ -76,5 +78,16 @@ public class AuthorServiceImpl implements AuthorService {
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean isAuthorInputRigth(Author entity) {
+        Pattern pattern = Pattern.compile("[A-Za-z]+[ -]?[A-Za-z]+");
+        Matcher firstNameMatcher = pattern.matcher(entity.getFirstName());
+        Matcher lastNameMatcher = pattern.matcher(entity.getLastName());
+        if (firstNameMatcher.matches() && lastNameMatcher.matches()) {
+            return true;
+        }
+        return false;
     }
 }
