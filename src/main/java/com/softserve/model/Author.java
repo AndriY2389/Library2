@@ -21,7 +21,7 @@ public class Author {
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors",cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.REMOVE)
     private List<Book> books;
 
     @Column(name = "LAST_NAME")
