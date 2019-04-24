@@ -19,4 +19,5 @@ public interface BookService {
     Book findById(Integer id);
 
     boolean deleteById(Integer id);
+
 }

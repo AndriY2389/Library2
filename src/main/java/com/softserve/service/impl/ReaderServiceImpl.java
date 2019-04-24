@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class ReaderServiceImpl implements ReaderService {
@@ -18,8 +20,10 @@ public class ReaderServiceImpl implements ReaderService {
     @Override
     @Transactional
     public boolean save(Reader entity) {
-        readerDAO.save(entity);
-        return true;
+        if (isReaderInputRigth(entity)) {
+            readerDAO.save(entity);
+        }
+        return false;
     }
 
     @Override
@@ -37,8 +41,10 @@ public class ReaderServiceImpl implements ReaderService {
     @Override
     @Transactional
     public boolean update(Reader entity) {
-        readerDAO.update(entity);
-        return true;
+        if (isReaderInputRigth(entity)) {
+            readerDAO.update(entity);
+        }
+        return false;
     }
 
     @Override
@@ -51,5 +57,16 @@ public class ReaderServiceImpl implements ReaderService {
     public boolean deleteById(Integer id) {
         readerDAO.deleteById(id);
         return true;
+    }
+
+    @Override
+    public boolean isReaderInputRigth(Reader entity) {
+        Pattern pattern = Pattern.compile("[A-Za-z]+[ -]?[A-Za-z]+");
+        Matcher firstNameMatcher = pattern.matcher(entity.getFirstName());
+        Matcher lastNameMatcher = pattern.matcher(entity.getLastName());
+        if (firstNameMatcher.matches() && lastNameMatcher.matches()) {
+            return true;
+        }
+        return false;
     }
 }

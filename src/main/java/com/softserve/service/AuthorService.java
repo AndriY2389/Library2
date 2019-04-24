@@ -19,4 +19,6 @@ public interface AuthorService {
     boolean deleteById(Integer id);
 
     Author findByName(String name);
+
+    boolean isAuthorInputRigth(Author entity);
 }
