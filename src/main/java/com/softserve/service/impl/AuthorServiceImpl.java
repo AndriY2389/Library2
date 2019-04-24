@@ -52,4 +52,17 @@ public class AuthorServiceImpl implements AuthorService {
         authorDAO.deleteById(id);
         return true;
     }
+
+    @Override
+    public Author findByName(String name) {
+        String firstName = name.split(" ")[0];
+        String lastName = name.split(" ")[1];
+        List<Author> authorList = findAll();
+        for (Author a : authorList) {
+            if (a.getFirstName().equals(firstName) && a.getLastName().equals(lastName)) {
+                return a;
+            }
+        }
+        return null;
+    }
 }

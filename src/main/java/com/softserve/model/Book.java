@@ -36,7 +36,7 @@ public class Book {
     @Column(name = "AVAILABLE")
     private Boolean available;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy="books")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="books",cascade = {CascadeType.REMOVE})
     private List<Order> orders;
 
 }
