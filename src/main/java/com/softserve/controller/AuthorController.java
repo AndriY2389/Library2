@@ -25,26 +25,45 @@ public class AuthorController {
         return "author/author";
     }
 
-    /*@GetMapping("/author_false_validation")
-    public String falseValidation(Model model){
-        model.addAttribute("falseValidation","invalid data");
-        return "author/author";
-    }*/
-
     @PostMapping("/create_author")
     public String createAuthor(@RequestParam(name = "FirstName") String firstName,
-                               @RequestParam(name = "LastName") String lastName){
+                               @RequestParam(name = "LastName") String lastName,
+                               Model model) {
         Author author = new Author();
         author.setFirstName(firstName);
         author.setLastName(lastName);
-        authorService.save(author);
+
+        if (!authorService.save(author)) {
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("authors", authorService.findAll());
+            return "author/author";
+        } else {
+            return "redirect:/author";
+        }
+
+    }
+
+    @PostMapping("/delete_author")
+    public String deleteAuthor(@RequestParam(name = "id") String id) {
+        authorService.deleteById(Integer.parseInt(id));
         return "redirect:/author";
     }
 
-
-    @PostMapping("/delete_author")
-    public String deleteAuthor(@RequestParam(name = "id") String id){
-        authorService.deleteById(Integer.parseInt(id));
-        return "redirect:/author";
+    @PostMapping("/update_author")
+    public String updateAuthor(@RequestParam(name = "FirstName") String firstName,
+                               @RequestParam(name = "LastName") String lastName,
+                               @RequestParam(name = "id") Integer id,
+                               Model model) {
+        Author author = new Author();
+        author.setFirstName(firstName);
+        author.setId(id);
+        author.setLastName(lastName);
+        if (!authorService.update(author)){
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("authors", authorService.findAll());
+            return "author/author";
+        } else{
+            return "redirect:/author";
+        }
     }
 }

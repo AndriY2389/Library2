@@ -33,6 +33,12 @@ public class AuthorServiceImpl implements AuthorService {
         if(entity.getFirstName().equals("")||entity.getLastName().equals("")){
             condition = false;
         }
+
+
+
+
+
+
         return condition;
     }
 
@@ -51,7 +57,17 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     @Override
     public boolean update(Author entity) {
-        authorDAO.update(entity);
+        Author author = findById(entity.getId());
+        if(entity.getFirstName().equals("")&&entity.getLastName().equals("")){
+            return false;
+        }
+        if(!entity.getLastName().equals("")){
+            author.setLastName(entity.getLastName());
+        }
+        if(!entity.getFirstName().equals("")){
+            author.setFirstName(entity.getFirstName());
+        }
+        authorDAO.update(author);
         return true;
     }
 
