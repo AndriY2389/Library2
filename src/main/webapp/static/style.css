@@ -8,11 +8,29 @@
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
 /*}*/
+.author_first_name {
+    display: inline-block;
+    width: 10%;
+    margin-left: 135px;
+
+}
+
+.author_last_name{
+    display: inline-block;
+    width: 10%;
+    margin-left: 190px;
+}
+
 .card{
     width: 185px;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 2px;
     padding: 5px;
+    border: none;
+}
+.btn-submit{
+    margin-left: 210px;
+    margin-bottom: 5px;
 }
 .btn-primary{
     margin-left: 55px;
@@ -20,9 +38,13 @@
 }
 .form-control{
     margin-top: 2px;
+
 }
 .menu{
     margin-top:20px;
+}
+.hiddenRow {
+
 }
 .btn1{
     margin-top: 15px;
@@ -33,6 +55,7 @@
     width: 77%;
     float: right;
     margin-right: 30px;
+    vertical-align: center;
 }
 .form-check-input{
     margin-left: 1.4rem;
