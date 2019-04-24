@@ -2,19 +2,21 @@
     font-size: 36px;
     font-family: Arial;
 }
-/*#background {*/
-    /*background-image: url("/static/silky-blue-background.jpg");*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-/*}*/
+
 .author_first_name {
     display: inline-block;
     width: 10%;
     margin-left: 115px;
-
 }
 
+.order_update {
+    margin-left: 40px;
+    margin-top: 2px;
+}
+
+.order_update_data {
+    margin-left: 40px;
+}
 .author_last_name{
     display: inline-block;
     width: 10%;
@@ -22,18 +24,21 @@
 }
 
 .card{
-    width: 185px;
+    width: 220px;
     margin-left: 15px;
     margin-top: 2px;
     padding: 5px;
     border: none;
 }
-.btn-submit{
+.btn-submit-order {
+    margin-left: 45px;
+}
+.btn-submit {
     margin-left: 155px;
     margin-bottom: 5px;
 }
 .btn-primary{
-    margin-left: 55px;
+    margin-left: 105px;
     margin-top: 15px;
 }
 .form-control{

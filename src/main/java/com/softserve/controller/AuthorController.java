@@ -36,7 +36,6 @@ public class AuthorController {
         } else {
             return "redirect:/author";
         }
-
     }
 
     @PostMapping("/delete_author")
