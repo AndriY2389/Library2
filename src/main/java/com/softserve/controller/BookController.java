@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
 import java.util.Date;
 
 @Controller
@@ -38,19 +37,21 @@ public class BookController {
 
     @PostMapping("/create_book")
     public String createBook(@RequestParam(name = "name") String name,
-                            // @RequestParam(name = "author") Integer idOfAuthor,
-                             @RequestParam(name = "releaseDate") Date releaseDate,
-                             @RequestParam(name = "available")Boolean available){
-        //Author author = authorService.findById(Integer.parseInt(idOfAuthor));
-        //
+                             @RequestParam(name = "author") String idOfAuthor,
+                             @RequestParam(name = "releaseDate") String releaseDate,
+                             @RequestParam(name = "available")Boolean available)
+    {
+        Author author = authorService.findById(Integer.parseInt(idOfAuthor));
         Book book = new Book();
-        book.setReleaseDate(releaseDate);
+        book.setReleaseDate(java.sql.Date.valueOf(releaseDate));
         book.setName(name);
         book.setAvailable(available);
-        //book.setAuthors(Collections.singletonList(author));
+        book.setAuthor(author);
 
-
-
+        System.out.println(idOfAuthor);
+        System.out.println(name);
+        System.out.println(releaseDate);
+        System.out.println(available);
         bookService.save(book);
         return "redirect:/book";
     }
