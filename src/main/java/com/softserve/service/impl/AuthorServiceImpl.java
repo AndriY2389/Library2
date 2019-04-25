@@ -18,10 +18,12 @@ public class AuthorServiceImpl implements AuthorService {
     @Autowired
     AuthorDAO authorDAO;
 
+    private AuthorDTO authorDTO;
+
     @Transactional
     @Override
     public boolean save(Author entity) {
-        AuthorDTO authorDTO = new AuthorDTO(entity);
+        authorDTO = new AuthorDTO(entity);
         if (conditionCreate(entity) && isAuthorInputRigth(authorDTO)) {
             authorDAO.save(entity);
             return true;
@@ -53,20 +55,20 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     @Transactional
     public boolean update(Author entity) {
-        AuthorDTO author = new AuthorDTO(findById(entity.getId()));
+        authorDTO = new AuthorDTO(findById(entity.getId()));
         if (entity.getFirstName().equals("") && entity.getLastName().equals("")) {
             return false;
         }
         if (!entity.getLastName().equals("")) {
-            author.setLastName(entity.getLastName());
+            authorDTO.setLastName(entity.getLastName());
         }
         if (!entity.getFirstName().equals("")) {
-            author.setFirstName(entity.getFirstName());
+            authorDTO.setFirstName(entity.getFirstName());
         }
-        if (!isAuthorInputRigth(author)) {
+        if (!isAuthorInputRigth(authorDTO)) {
             return false;
         }
-        authorDAO.update(author.getAuthor());
+        authorDAO.update(authorDTO.getAuthor());
         return true;
     }
 

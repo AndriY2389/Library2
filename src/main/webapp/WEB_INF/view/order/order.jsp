@@ -53,7 +53,7 @@
                     <div class="accordian-body collapse row" id="demoOrder${order.getId()}">
                         <div class="order_update" style="display: inline-block;">
                             <select required name="book" class="custom-select" id="inputBookSelect">
-                                <option selected value="0">Choose Book</option>
+                                <option value="0">Choose Book</option>
                                 <c:forEach var="book" items="${books}" varStatus="rowCounter">
                                     <option value="${book.getId()}">${book.getName()}</option>
                                 </c:forEach>
@@ -61,12 +61,12 @@
                             <input type="hidden" name="id" value="${order.getId()}">
                         </div>
                         <div class="order_update_data " style="display: inline-block">
-                            <input required name="dateOfIssuance" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfIssuance" min="2000-01-01" type="date" value="1900-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
                         <div class="order_update_data" style="display: inline-block">
-                            <input required name="dateOfReturn" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfReturn" min="2000-01-01" type="date" value="1900-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
@@ -85,7 +85,6 @@
                 </form>
         </tr>
     </c:forEach>
-
     </tbody>
 </table>
 
@@ -102,11 +101,11 @@
                     </c:forEach>
                 </select>
 
-                <input name="dateOfIssuance" type="date" value="1900-01-01" class="form-control "
+                <input name="dateOfIssuance" min="2000-01-01" type="date" value="1900-01-01" class="form-control "
                        placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2"/>
 
-                <input name="dateOfReturn" type="date" value="1900-01-01" class="form-control " placeholder="releaseDate"
+                <input name="dateOfReturn" min="2000-01-01" type="date" value="1900-01-01" class="form-control " placeholder="releaseDate"
                        aria-label="Recipient's username"
                        aria-describedby="basic-addon2"/>
 

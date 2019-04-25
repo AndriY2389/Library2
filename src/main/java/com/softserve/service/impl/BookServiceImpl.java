@@ -1,6 +1,7 @@
 package com.softserve.service.impl;
 
 import com.softserve.dao.generic.BookDAO;
+import com.softserve.dto.BookDTO;
 import com.softserve.model.Book;
 import com.softserve.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -20,7 +19,7 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public boolean save(Book entity) {
-        if(conditionCreate(entity)){
+        if (conditionCreate(entity)) {
             bookDAO.save(entity);
             return true;
         } else {
@@ -47,8 +46,16 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public boolean update(Book entity) {
-        bookDAO.update(entity);
+    public boolean update(BookDTO entity) {
+        BookDTO bookDTO = new BookDTO(findById(entity.getId()));
+        if (!entity.getName().equals("")) {
+            bookDTO.setName(entity.getName());
+        }
+        if(entity.getAuthor()!=null){
+            bookDTO.setAuthor(entity.getAuthor());
+        }
+        bookDTO.setReleaseDate(entity.getReleaseDate());
+        bookDAO.update(bookDTO.getBook());
         return true;
     }
 

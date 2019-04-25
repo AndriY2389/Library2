@@ -1,6 +1,7 @@
 package com.softserve.service;
 
 
+import com.softserve.dto.BookDTO;
 import com.softserve.model.Book;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface BookService {
 
     List<Book> findAll();
 
-    boolean update(Book entity);
+    boolean update(BookDTO entity);
 
     Book findById(Integer id);
 

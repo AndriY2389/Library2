@@ -29,9 +29,9 @@ public class ReaderController {
         reader.setFirstName(firstName);
         reader.setLastName(lastName);
 
-        if (readerService.save(reader)) {
+        if (!readerService.save(reader)) {
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
-            model.addAttribute("reader", readerService.findAll());
+            model.addAttribute("readers", readerService.findAll());
             return "reader/reader";
         } else {
             return "redirect:/reader";

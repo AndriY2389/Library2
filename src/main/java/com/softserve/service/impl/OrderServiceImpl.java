@@ -48,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
         if(entity.getReader()!=null){
             orderDTO.setReader(entity.getReader());
         }
-        orderDAO.update(entity.getOrder());
+        orderDAO.update(orderDTO.getOrder());
         return true;
     }
 

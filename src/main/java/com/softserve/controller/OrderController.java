@@ -40,6 +40,15 @@ public class OrderController {
                                @RequestParam(name = "reader") Integer reader_id,
                                @RequestParam(name = "id") Integer id,
                                Model model) {
+        System.out.println(book_id);
+        System.out.println(reader_id);
+        System.out.println(dateOfIssuance);
+        System.out.println(dateOfReturn);
+        System.out.println(id);
+
+
+
+
         OrderDTO order = new OrderDTO();
         order.setId(id);
         if (book_id != 0) {
