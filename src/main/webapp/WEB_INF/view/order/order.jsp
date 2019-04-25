@@ -61,12 +61,12 @@
                             <input type="hidden" name="id" value="${order.getId()}">
                         </div>
                         <div class="order_update_data " style="display: inline-block">
-                            <input required name="dateOfIssuance" min="2000-01-01" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfIssuance" min="2000-01-01" type="date" value="2000-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
                         <div class="order_update_data" style="display: inline-block">
-                            <input required name="dateOfReturn" min="2000-01-01" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfReturn" min="2000-01-01" type="date" value="2000-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
@@ -101,11 +101,11 @@
                     </c:forEach>
                 </select>
 
-                <input name="dateOfIssuance" min="2000-01-01" type="date" value="1900-01-01" class="form-control "
+                <input name="dateOfIssuance" min="2000-01-01" type="date" value="2000-01-01" class="form-control "
                        placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2"/>
 
-                <input name="dateOfReturn" min="2000-01-01" type="date" value="1900-01-01" class="form-control " placeholder="releaseDate"
+                <input name="dateOfReturn" min="2000-01-01" type="date" value="2000-01-01" class="form-control " placeholder="releaseDate"
                        aria-label="Recipient's username"
                        aria-describedby="basic-addon2"/>
 
