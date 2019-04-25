@@ -1,6 +1,7 @@
 package com.softserve.service.impl;
 
 import com.softserve.dao.generic.OrderDAO;
+import com.softserve.dto.OrderDTO;
 import com.softserve.model.Order;
 import com.softserve.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public boolean update(Order entity) {
-        orderDAO.update(entity);
+    public boolean update(OrderDTO entity) {
+        OrderDTO orderDTO = new OrderDTO(findById(entity.getId()));
+
+        orderDTO.setStart(entity.getStart());
+        orderDTO.setFinish(entity.getFinish());
+        if(entity.getBook()!=null){
+            orderDTO.setBook(entity.getBook());
+        }
+        if(entity.getReader()!=null){
+            orderDTO.setReader(entity.getReader());
+        }
+        orderDAO.update(orderDTO.getOrder());
         return true;
     }
 

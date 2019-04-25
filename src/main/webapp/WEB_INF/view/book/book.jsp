@@ -51,7 +51,7 @@
                             <input type="text" name="name" class="form-control " placeholder="Name of book" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         <div class="book_buttons">
-                            <input type="date" required name="releaseDate" class="form-control" placeholder="ReleaseDate" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="date" required name="releaseDate" value="1980-01-01" min="1980-01-01" max="2019-04-25" class="form-control" placeholder="ReleaseDate" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         <div class="book_buttons">
                             <select required name="author" class="custom-select">
@@ -83,7 +83,7 @@
                         <option value="${author.getId()}">${author.getFirstName()} ${author.getLastName()}</option>
                     </c:forEach>
                 </select>
-                <input name="releaseDate" type="date" value="1900-01-01" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
+                <input name="releaseDate" type="date" value="1980-01-01" min="1980-01-01" max="2019-04-25" class="form-control" placeholder="releaseDate" aria-label="Recipient's username"
                        aria-describedby="basic-addon2">
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
