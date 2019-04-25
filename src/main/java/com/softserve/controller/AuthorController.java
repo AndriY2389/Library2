@@ -49,8 +49,8 @@ public class AuthorController {
                                @RequestParam(name = "id") Integer id,
                                Model model) {
         Author author = new Author();
-        author.setFirstName(firstName);
         author.setId(id);
+        author.setFirstName(firstName);
         author.setLastName(lastName);
         if (!authorService.update(author)){
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
