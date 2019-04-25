@@ -34,7 +34,7 @@
                 <button type="button" data-toggle="collapse" data-target="#demo${reader.getId()}" class="btn btn-outline-info accordion-toggle">Update</button>
             </td>
             <td >
-                <form action="/delete_reader" method="post">
+                <form action="/delete_reader" method="post" style="margin-block-end: 0em;">
                     <input type="hidden" name="id" value="${reader.getId()}">
                     <input type="submit" class="btn btn-outline-danger"value="Delete"/>
                 </form>
@@ -43,7 +43,7 @@
 
         <tr>
             <td colspan="6" class="hiddenRow" style="border-top: 0px solid #dee2e6;  padding: 0;">
-                <form method="post" action="/update_reader">
+                <form method="post" action="/update_reader" style="margin-block-end: 0em;">
                     <div class="accordian-body collapse" id="demo${reader.getId()}">
                         <input type="hidden", name="id" value="${reader.getId()}">
                         <div class="author_first_name">
