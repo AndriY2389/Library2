@@ -1,6 +1,7 @@
 package com.softserve.service;
 
 
+import com.softserve.dto.OrderDTO;
 import com.softserve.model.Order;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface OrderService {
 
     List<Order> findAll();
 
-    boolean update(Order entity);
+    boolean update(OrderDTO entity);
 
     Order findById(Integer id);
 

@@ -1,5 +1,6 @@
 package com.softserve.controller;
 
+import com.softserve.dto.OrderDTO;
 import com.softserve.model.Author;
 import com.softserve.model.Order;
 import com.softserve.service.BookService;
@@ -25,50 +26,66 @@ public class OrderController {
     ReaderService readerService;
 
     @GetMapping("/order")
-    public String getOrders(Model model){
+    public String getOrders(Model model) {
         model.addAttribute("orders", orderService.findAll());
         model.addAttribute("books", bookService.findAll());
         model.addAttribute("readers", readerService.findAll());
         return "order/order";
     }
 
-    @PostMapping("/order_update")
+    @PostMapping("/update_order")
     public String updateAuthor(@RequestParam(name = "book") Integer book_id,
                                @RequestParam(name = "dateOfIssuance") String dateOfIssuance,
                                @RequestParam(name = "dateOfReturn") String dateOfReturn,
-                               @RequestParam(name = "reader") Integer reader,
+                               @RequestParam(name = "reader") Integer reader_id,
+                               @RequestParam(name = "id") Integer id,
                                Model model) {
-        Order order = new Order();
-//        order.setId();
-        order.setBooks(bookService.findById(book_id));
-        order.setDateOfIssuance(Date.valueOf(dateOfIssuance));
-        order.setDateOfReturn(Date.valueOf(dateOfReturn));
-        order.setReaders(readerService.findById(reader));
+        OrderDTO order = new OrderDTO();
+        order.setId(id);
+        if (book_id != 0) {
+            order.setBook(bookService.findById(book_id));
+        }
+        if (reader_id != 0) {
+            order.setReader(readerService.findById(reader_id));
+        }
+        order.setStart(Date.valueOf(dateOfIssuance));
+        order.setFinish(Date.valueOf(dateOfReturn));
         if (!orderService.update(order)) {
             model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+            model.addAttribute("readers", readerService.findAll());
             model.addAttribute("orders", orderService.findAll());
+            model.addAttribute("books", bookService.findAll());
             return "order/order";
         } else {
             return "redirect:/order";
         }
     }
 
+    @PostMapping("/delete_order")
+    public String deleteOrder(@RequestParam(name = "id") Integer id) {
+        orderService.deleteById(id);
+        return "redirect:/order";
+    }
+
     @PostMapping("/create_order")
     public String createAuthor(@RequestParam(name = "book") Integer book_id,
                                @RequestParam(name = "dateOfIssuance") String dateOfIssuance,
                                @RequestParam(name = "dateOfReturn") String dateOfReturn,
-                               @RequestParam(name = "reader") Integer reader,
+                               @RequestParam(name = "reader") Integer reader_id,
                                Model model) {
         Order order = new Order();
         order.setBooks(bookService.findById(book_id));
         order.setDateOfIssuance(Date.valueOf(dateOfIssuance));
         order.setDateOfReturn(Date.valueOf(dateOfReturn));
-        order.setReaders(readerService.findById(reader));
-        if (!orderService.save(order)) {
-            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
+        order.setReaders(readerService.findById(reader_id));
+        if (book_id == 0 || reader_id == 0) {
             model.addAttribute("orders", orderService.findAll());
+            model.addAttribute("books", bookService.findAll());
+            model.addAttribute("readers", readerService.findAll());
+            model.addAttribute("invalid_data", "INVALID DATA!!!!!");
             return "order/order";
         } else {
+            orderService.save(order);
             return "redirect:/order";
         }
     }

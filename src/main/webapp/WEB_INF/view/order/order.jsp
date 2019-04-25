@@ -49,7 +49,7 @@
         <tr>
             <td colspan="7" class="hiddenRow"
                 style="border-top: 0px solid #dee2e6;  padding: 0; margin-block-end: 0em; font-size: 0px">
-                <form method="post" action="/update_author">
+                <form method="post" action="/update_order">
                     <div class="accordian-body collapse row" id="demoOrder${order.getId()}">
                         <div class="order_update" style="display: inline-block;">
                             <select required name="book" class="custom-select" id="inputBookSelect">
@@ -58,14 +58,15 @@
                                     <option value="${book.getId()}">${book.getName()}</option>
                                 </c:forEach>
                             </select>
+                            <input type="hidden" name="id" value="${order.getId()}">
                         </div>
                         <div class="order_update_data " style="display: inline-block">
-                            <input name="dateOfIssuance" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfIssuance" type="date" value="1900-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
                         <div class="order_update_data" style="display: inline-block">
-                            <input name="dateOfReturn" type="date" value="1900-01-01" class="form-control"
+                            <input required name="dateOfReturn" type="date" value="1900-01-01" class="form-control"
                                    placeholder="releaseDate" aria-label="Recipient's username"
                                    aria-describedby="basic-addon2"/>
                         </div>
@@ -95,6 +96,7 @@
         <div class="card card-body">
             <form action="/create_order" method="post" class="col">
                 <select required name="book" class="custom-select " id="inputBookSelect1">
+                    <option selected value="0">Choose book</option>
                     <c:forEach var="book" items="${books}" varStatus="rowCounter">
                         <option value="${book.getId()}">${book.getName()}</option>
                     </c:forEach>
@@ -117,6 +119,9 @@
                 <input type="submit" class="btn btn-primary" value="submit"/>
             </form>
         </div>
+    </div>
+    <div class="invalid_data" style="color: red">
+        ${invalid_data}
     </div>
 </div>
 </body>
